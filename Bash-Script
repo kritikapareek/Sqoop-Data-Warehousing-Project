@@ -1,0 +1,17 @@
+#!/bin/bash
+source /home/hduser/.bashrc
+
+sqoop import --bindir /usr/local/sqoop/lib/ 
+            --driver org.mariadb.jdbc.Driver 
+            --connect jdbc:mariadb://localhost/student 
+            --table fees 
+            --username root --password redhat 
+            --target-dir /user/hduser/new_fees --m 1 
+            --incremental append --check-column “fid” --last-value $last_value
+
+current_value=`sqoop eval --connect jdbc:mysql://localhost/student 
+                          --username root –-password redhat 
+                          --query ” select fid from fees order by fid limit 1 ” 
+                          | tail -n 2 | head -n 1 | awk ‘ { print $2} ’`
+
+sed -i s’/last_value=[0-9]*/last_value=’$current_value’/g’/home/hduser/.bashrc
