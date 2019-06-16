@@ -1,0 +1,29 @@
+# To check terminal
+tty
+
+#Entry in the bashrc file of the user
+$ vim /home/hduser/.bashrc
+  
+  last_value = 1007 ( the last value from where the next entries will have to be appended )
+
+# Reloading the newly added entries to the bashrc file 
+$ source ~/.bashrc
+
+$ vim Bash_Script.sh
+
+#Changing permissions
+$ chmod a+x backup_script.sh
+
+#Setting up the crontab 
+$ crontab -e
+  To run the script at say, 13:15 every day
+  15 13 * * * /home/hduser/Bash_Script.sh
+
+#The job will be run at the specified time . In case any error occurs, it will be shown in the
+mail.
+$ mail
+
+After the successful completion of the task, to check the incremented data in the target
+directory in HDFS :
+
+$ hdfs dfs -cat /user/hduser/new_fees
