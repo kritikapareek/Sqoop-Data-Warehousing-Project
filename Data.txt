@@ -1,0 +1,19 @@
+We have a database named Student in which we have a table named fees:
+
+FEES
+
+fid | St_name |Total_fees |Due_fees |Ph_no
+
+1001 | Chandler|15000 |5000  |9023456789
+1002 |Ross     |20000 |10000 |9837654321
+1003 |Phoebe   |10000 |0     |9618654322
+1004 |Monica   |15000 |3000  |9234436578
+1005 |Rachel   |13000 |5000  |9254563511
+1006 |Joey     |10000 |0     |9678456322
+1007 |Richard  |10000 |2000  |9967456322
+
+Assume the newly appended data to be :
+
+1008 |Gunther |15000 |1000 |9234436578
+1009 |Emily   |13000 |4000 |9254563511
+1010 |Tag     |10000 |5000 |9678456322
